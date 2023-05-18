@@ -44,14 +44,14 @@ class LoginController extends CI_Controller
 				$this->session->set_userdata('userLogged', $user_data);
 
 				// Redirect to home page
-				redirect(base_url('home'));
+				redirect(base_url('dashboard'));
 			} else {
 				$this->session->set_flashdata('error', 'Invalid username or password!');
 				redirect(base_url('login'));
 			}
 		}else{
 			$this->session->set_flashdata('error', validation_errors());
-			$this->load->view('login/index');
+			redirect(base_url('login'));
 		}
 
 		// load view login

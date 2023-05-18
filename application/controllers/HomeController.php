@@ -11,12 +11,12 @@ class HomeController extends CI_Controller
     public function __construct()
     {
         parent::__construct();
+		check_login();
     }
 
 	public function index()
 	{
 		$data['content'] = $this->load->view('home/index', '', true);
-
 		$this->load->view('layout', $data);
 	}
 
