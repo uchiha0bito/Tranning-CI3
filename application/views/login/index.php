@@ -24,7 +24,8 @@
 		line-height: 1.4;
 		display: flex;
 	}
-	#content{
+
+	#content {
 		display: flex;
 		justify-content: center;
 		width: 100%;
@@ -101,35 +102,41 @@
 		background-color: #fdf2e9;
 		color: #f48982;
 	}
-	.error{
+
+	.error {
 		color: red;
 	}
 </style>
 
 
 <div class="container">
-<h2 class="text-center">Login</h2>
 
-	<form action="<?php echo base_url('login-user')?>" method="POST" class="login-form">
+	<h2 class="text-center">Login</h2>
+
+	<?php if ($this->session->flashdata('error')) : ?>
+		<div class="alert alert-danger">
+			<?php echo $this->session->flashdata('error'); ?>
+		</div>
+	<?php endif; ?>
+
+	<?php if (!empty($error)) { ?>
+		<div class="alert alert-danger">
+			<?php echo $error; ?>
+		</div>
+	<?php } ?>
+
+	<form action="<?php echo base_url('login-user') ?>" method="POST" class="login-form">
 		<div>
-			<label for="email">Email </label>
-			<input id="email" type="email" placeholder="Enter Username" name="email"  />
-		</div>
-
-		<div class="error">
-		<?php echo form_error('email'); ?>
+			<label for="email">Email</label>
+			<input id="email" type="email" placeholder="Enter Email" name="email" value="<?php echo set_value('email'); ?>" />
+			<div class="error"><?php echo form_error('email'); ?></div>
 		</div>
 
 		<div>
-			<label for="password">Password </label>
-			<input id="password" type="password" placeholder="Enter Password" name="password"  />
+			<label for="password">Password</label>
+			<input id="password" type="password" placeholder="Enter Password" name="password" />
+			<div class="error"><?php echo form_error('password'); ?></div>
 		</div>
-
-		<div class="error">
-		<?php echo form_error('password'); ?>
-		</div>
-
-
 		<button class="btn btn--form" type="submit" value="Log in">Log in</button>
 	</form>
 </div>

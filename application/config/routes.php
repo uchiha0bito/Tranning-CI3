@@ -54,15 +54,16 @@ $route['translate_uri_dashes'] = FALSE;
 
 
 // Home route
-$route['default_controller'] = 'HomeController';
-$route['home'] = 'HomeController';
-
-$route['about'] = 'HomeController/about';
+$route['default_controller'] 	= 'HomeController';
+$route['home'] 					= 'HomeController';
+$route['about']					= 'HomeController/about';
 
 
 // Login route
 $route['login']['GET'] 			= 'LoginController/index';
 $route['login-user']['POST'] 	= 'LoginController/login';
+$route['logout'] 				= 'LoginController/logout';
+
 
 
 

@@ -1,0 +1,8 @@
+{
+	"intelephense.files.associations": [
+
+		"*.php",
+		"*.phtml"
+	],
+	"intelephense.diagnostics.undefinedProperties": false
+}

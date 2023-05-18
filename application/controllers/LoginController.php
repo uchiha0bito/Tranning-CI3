@@ -10,7 +10,7 @@ class LoginController extends CI_Controller
 	public function __construct()
 	{
 		parent::__construct();
-		$this->load->model('User_model'); // Tải model User_model
+		$this->load->model('User_model'); // Load user model
 
 	}
 
@@ -23,9 +23,8 @@ class LoginController extends CI_Controller
 
 	public function login()
 	{
-		$this->form_validation->set_rules('email', 'Username', 'required', ['required' => 'Bạn chưa điền %s!']);
-		$this->form_validation->set_rules('password', 'Password', 'required', ['required' => 'Bạn chưa điền %s!']);
-
+		$this->form_validation->set_rules('email', 'Email', 'required|valid_email');
+		$this->form_validation->set_rules('password', 'Password', 'required');
 
 
 		if ($this->form_validation->run() == true) {
@@ -37,25 +36,33 @@ class LoginController extends CI_Controller
 
 			if ($user) {
 				// Save data user in session
-				$session_array= [
-					'id'=> $user->id,
-					'email'=> $user->username,
+				$user_data = [
+					'id' => $user->id,
+					'email' => $user->username,
 				];
 
-				$this->session->set_userdata('userLogged',$session_array);
-				$this->session->set_flashdata('success','Login Successfully!');
+				$this->session->set_userdata('userLogged', $user_data);
 
 				// Redirect to home page
 				redirect(base_url('home'));
 			} else {
-
-				$this->session->set_flashdata('error','Invalid username or password!');
+				$this->session->set_flashdata('error', 'Invalid username or password!');
 				redirect(base_url('login'));
-
 			}
+		}else{
+			$this->session->set_flashdata('error', validation_errors());
+			$this->load->view('login/index');
 		}
 
-		// Load view đăng nhập
-		$this->load->view('login', $data);
+		// load view login
+		redirect(base_url('login'));
+	}
+
+	public function logout()
+	{
+		$this->session->unset_userdata('userLogged');
+		$this->session->unset_userdata('error');
+		$this->session->set_flashdata('success', 'Logged out successfully.');
+		redirect(base_url('login'));
 	}
 }
