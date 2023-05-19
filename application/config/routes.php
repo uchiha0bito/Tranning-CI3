@@ -49,32 +49,54 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
+
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
-
 // Route Home
+
 $route['default_controller'] 	= 'HomeController';
 $route['home'] 					= 'HomeController';
 $route['about']					= 'HomeController/about';
 
 
 // Route Login
+
 $route['login']['GET'] 			= 'LoginController/index';
 $route['login-user']['POST'] 	= 'LoginController/login';
 $route['logout'] 				= 'LoginController/logout';
 
 // Route Admin
+
 $route['dashboard']				= 'DashboardController/index';
 
-// Route Group
+
+// Route Group Users
 
 $route['group']  				= 'GroupUserController/index';
-$route['group/list']  			= 'GroupUserController/index';
-$route['group/add']				= 'GroupUserController/add';
-$route['group/create']			= 'GroupUserController/create';
+$route['group/list']['GET']  	= 'GroupUserController/index';
+
+$route['group/add']['GET']		= 'GroupUserController/add';
+$route['group/create']['POST']	= 'GroupUserController/create';
+
 $route['group/edit/(:num)'] 	= 'GroupUserController/edit/$1';
+$route['group/update/(:num)'] 	= 'GroupUserController/update/$1';
+
 $route['group/delete/(:num)'] 	= 'GroupUserController/delete/$1';
+
+
+// Route  Users
+
+$route['users']  				= 'UserController/index';
+$route['users/list']['GET']  	= 'UserController/index';
+
+$route['users/add']['GET']		= 'UserController/add';
+$route['users/create']['POST']	= 'UserController/create';
+
+$route['users/edit/(:num)'] 	= 'UserController/edit/$1';
+$route['users/update/(:num)'] 	= 'UserController/update/$1';
+
+$route['users/delete/(:num)'] 	= 'UserController/delete/$1';
 
 
 
