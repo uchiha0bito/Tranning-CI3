@@ -1,5 +1,9 @@
 
 <script>
+	$(document).ready(function() {
+		$('#userTable').DataTable();
+	});
+
     $(document).ready(function() {
         $('.delete-link').click(function(e) {
             e.preventDefault();

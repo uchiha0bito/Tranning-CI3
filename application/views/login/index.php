@@ -127,13 +127,13 @@
 
 	<form action="<?php echo base_url('login-user') ?>" method="POST" class="login-form">
 		<div>
-			<label for="email">Email</label>
-			<input id="email" type="email" placeholder="Enter Email" name="email" value="<?php echo set_value('email'); ?>" />
-			<div class="error"><?php echo form_error('email'); ?></div>
+			<label for="username">Username:</label>
+			<input id="username" type="text" placeholder="Enter Username" name="username" value="<?php echo set_value('username'); ?>" />
+			<div class="error"><?php echo form_error('username'); ?></div>
 		</div>
 
 		<div>
-			<label for="password">Password</label>
+			<label for="password">Password:</label>
 			<input id="password" type="password" placeholder="Enter Password" name="password" />
 			<div class="error"><?php echo form_error('password'); ?></div>
 		</div>

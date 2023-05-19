@@ -71,18 +71,18 @@ $route['logout'] 				= 'LoginController/logout';
 $route['dashboard']				= 'DashboardController/index';
 
 
-// Route Group Users
+// Route Roles
 
-$route['group']  				= 'GroupUserController/index';
-$route['group/list']['GET']  	= 'GroupUserController/index';
+$route['role']  				= 'RoleController/index';
+$route['role/list']['GET']  	= 'RoleController/index';
 
-$route['group/add']['GET']		= 'GroupUserController/add';
-$route['group/create']['POST']	= 'GroupUserController/create';
+$route['role/create']['GET']	= 'RoleController/create';
+$route['role/store']['POST']	= 'RoleController/store';
 
-$route['group/edit/(:num)'] 	= 'GroupUserController/edit/$1';
-$route['group/update/(:num)'] 	= 'GroupUserController/update/$1';
+$route['role/edit/(:num)'] 		= 'RoleController/edit/$1';
+$route['role/update/(:num)'] 	= 'RoleController/update/$1';
 
-$route['group/delete/(:num)'] 	= 'GroupUserController/delete/$1';
+$route['role/delete/(:num)'] 	= 'RoleController/delete/$1';
 
 
 // Route  Users
@@ -90,8 +90,8 @@ $route['group/delete/(:num)'] 	= 'GroupUserController/delete/$1';
 $route['users']  				= 'UserController/index';
 $route['users/list']['GET']  	= 'UserController/index';
 
-$route['users/add']['GET']		= 'UserController/add';
-$route['users/create']['POST']	= 'UserController/create';
+$route['users/create']['GET']	= 'UserController/create';
+$route['users/store']['POST']	= 'UserController/store';
 
 $route['users/edit/(:num)'] 	= 'UserController/edit/$1';
 $route['users/update/(:num)'] 	= 'UserController/update/$1';

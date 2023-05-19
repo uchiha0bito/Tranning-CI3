@@ -10,7 +10,7 @@ class LoginController extends CI_Controller
 	public function __construct()
 	{
 		parent::__construct();
-		$this->load->model('User_model'); // Load user model
+		$this->load->model('User_Model'); 
 
 	}
 
@@ -23,16 +23,16 @@ class LoginController extends CI_Controller
 
 	public function login()
 	{
-		$this->form_validation->set_rules('email', 'Email', 'required|valid_email');
+		$this->form_validation->set_rules('username', 'Username', 'required');
 		$this->form_validation->set_rules('password', 'Password', 'required');
 
 
 		if ($this->form_validation->run() == true) {
 
-			$username = $this->input->post('email');
+			$username = $this->input->post('username');
 			$password = md5($this->input->post('password'));
 
-			$user = $this->User_model->login($username, $password);
+			$user = $this->User_Model->login($username, $password);
 
 			if ($user) {
 				// Save data user in session

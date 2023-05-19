@@ -1,18 +1,23 @@
 <div class="container">
+	<h3>Edit User:</h3>
 
-	<form action="<?php echo base_url('users/update/' . $user->id); ?>" method="post">
+	<form action="<?php echo base_url('users/update/' . $user->id); ?>" method="POST">
 		<div class="mb-3">
-			<label for="exampleInputEmail1" class="form-label">Username:</label>
-			<input type="text" class="form-control" id="username" name="username" value="<?php echo $user->username; ?>" required aria-describedby="emailHelp">
+			<label for="username" class="form-label">Username:</label>
+			<input type="text" class="form-control" id="username" name="username" value="<?php echo $user->username; ?>" required>
 		</div>
 		<div class="mb-3">
-			<label for="exampleInputPassword1" class="form-label">Password:</label>
-			<input type="text" class="form-control" id="password" name="password" id="exampleInputPassword1">
+			<label for="username" class="form-label">Email:</label>
+			<input type="text" class="form-control" id="email" name="email" value="<?php echo $user->email; ?>" required>
+		</div>
+		<div class="mb-3">
+			<label for="password" class="form-label">Password:</label>
+			<input type="text" class="form-control" id="password" name="password" >
 		</div>
 
 		<div class="mb-3">
-			<label for="exampleInputPassword1" class="form-label">Re Password:</label>
-			<input type="text" class="form-control" id="re_password" name="re_password" id="exampleInputPassword1">
+			<label for="re_password" class="form-label">Re Password:</label>
+			<input type="text" class="form-control" id="re_password" name="re_password" >
 		</div>
 		<div class="mb-3">
 			<label for="status" class="form-label">Status:</label>

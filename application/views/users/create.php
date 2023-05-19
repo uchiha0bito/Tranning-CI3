@@ -1,13 +1,22 @@
 <div class="container">
 	<h3>Create User:</h3>
-	<form action="<?php echo base_url('users/create'); ?>" method="post">
+	<form action="<?php echo base_url('users/store'); ?>" method="POST">
 		<div class="mb-3">
 			<label for="username" class="form-label">Username:</label>
-			<input type="email" class="form-control" id="username" name="username">
+			<input type="text" class="form-control" id="username" name="username">
 		</div>
 
 		<div class="error">
 			<?php echo form_error('username'); ?>
+		</div>
+
+		<div class="mb-3">
+			<label for="email" class="form-label">Email:</label>
+			<input type="email" class="form-control" id="email" name="email">
+		</div>
+
+		<div class="error">
+			<?php echo form_error('email'); ?>
 		</div>
 
 		<div class="mb-3">
