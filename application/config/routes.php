@@ -66,6 +66,8 @@ $route['login']['GET'] 			= 'LoginController/index';
 $route['login-user']['POST'] 	= 'LoginController/login';
 $route['logout'] 				= 'LoginController/logout';
 
+$route['not_authorized'] 		= 'LoginController/not_authorized';
+
 // Route Admin
 
 $route['dashboard']				= 'DashboardController/index';
@@ -112,6 +114,17 @@ $route['permission/edit/(:num)'] 	= 'PermissionController/edit/$1';
 $route['permission/update/(:num)']  = 'PermissionController/update/$1';
 
 $route['permission/delete/(:num)'] 	= 'PermissionController/delete/$1'; 
+
+
+// Route Role has Permissions
+
+$route['role/permissions/edit/(:num)'] 			= 'RolePermissionController/editPermissionsForRole/$1';
+$route['role/permissions/update'] 				= 'RolePermissionController/updatePermissionsForRole';
+
+// Route User Role
+$route['user/edit_roles/(:num)'] 				= 'UserRoleController/editRoleForUser/$1';
+$route['user/roles/update'] 					= 'UserRoleController/updateRoleForUser';
+
 
 
 

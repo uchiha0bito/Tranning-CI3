@@ -21,7 +21,7 @@ class User_Model extends CI_Model {
         $query = $this->db->get('users');
         return $query->result();
     }
-
+	
     public function create_user($user_data) {
         $this->db->insert('users', $user_data);
         return $this->db->insert_id();
@@ -46,6 +46,32 @@ class User_Model extends CI_Model {
         } else {
             return null; 
         }
+    }
+
+	public function get_user_name_by_id($user_id) {
+
+		$this->db->select('username');
+        $this->db->where('id', $user_id);
+        return $this->db->get('users');
+    }
+
+	public function get_role_name_by_user_id($user_id) {
+
+		$this->db->select('roles.name');
+		$this->db->from('roles');
+		$this->db->join('user_roles', 'user_roles.role_id = roles.id');
+		$this->db->where('user_roles.user_id', $user_id);
+
+		$query = $this->db->get();
+
+
+
+		if ($query->num_rows() > 0) {
+			$row = $query->row();
+			return $row->name;
+		}
+	
+		return null;
     }
 
 	public function get_user_roles($user_id)

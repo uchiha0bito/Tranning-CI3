@@ -17,24 +17,33 @@ class UserController extends CI_Controller
 	// View list user
 	public function index()
 	{
+		if (check_access('list_user')) {
 
-		$users = $this->User_Model->get_all_users();
-		$data['users'] = $users;
+			$users = $this->User_Model->get_all_users();
+			$data['users'] = $users;
 
-		$this->load->view('admin_template/header');
-		$this->load->view('admin_template/navbar');
-		$this->load->view('users/index', $data);
-		$this->load->view('admin_template/footer');
-		$this->load->view('users/js');
+			$this->load->view('admin_template/header');
+			$this->load->view('admin_template/navbar');
+			$this->load->view('users/index', $data);
+			$this->load->view('admin_template/footer');
+			$this->load->view('users/js');
+		} else {
+			redirect(base_url('not_authorized'));
+		}
 	}
 
 	// View create user
 	public function create()
 	{
+		if (check_access('add_user')) {
+
 		$this->load->view('admin_template/header');
 		$this->load->view('admin_template/navbar');
 		$this->load->view('users/create');
 		$this->load->view('admin_template/footer');
+		}else{
+			redirect(base_url('not_authorized'));
+		}
 	}
 
 	// Function add user
@@ -80,7 +89,7 @@ class UserController extends CI_Controller
 	}
 
 	// Function update user
-	
+
 	public function update($user_id)
 	{
 
@@ -94,15 +103,14 @@ class UserController extends CI_Controller
 			if ($this->form_validation->run() == TRUE) {
 
 				// Get data
-				if(!empty($this->input->post('password'))){
+				if (!empty($this->input->post('password'))) {
 					$user_data = array(
 						'username' 			=> $this->input->post('username'),
 						'email' 			=> $this->input->post('email'),
 						'password' 			=> md5($this->input->post('password')),
 						'status' 			=> $this->input->post('status'),
 					);
-				}
-				elseif(empty($this->input->post('password'))){
+				} elseif (empty($this->input->post('password'))) {
 					$user_data = array(
 						'username' 			=> $this->input->post('username'),
 						'email' 			=> $this->input->post('email'),
@@ -116,7 +124,7 @@ class UserController extends CI_Controller
 
 				// Redirect to success page
 				return redirect(base_url('users'));
-			}else{
+			} else {
 				return redirect(base_url('users'));
 			}
 		} else {

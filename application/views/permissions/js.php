@@ -1,4 +1,5 @@
 <script>
+	// Data table
 	$(document).ready(function() {
 		$('#permissionTable').DataTable();
 	});
@@ -12,4 +13,5 @@
 			}
 		});
 	});
+
 </script>

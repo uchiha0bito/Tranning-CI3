@@ -21,6 +21,8 @@
       <td><?php echo $role->updated_at; ?></td>
 			
       <td>
+
+		<a class="btn btn-warning" href="<?php echo base_url('role/permissions/edit/'.$role->id); ?>">Manage Roles</a>
 		<a class="btn btn-success" href="<?php echo base_url('role/edit/'.$role->id); ?>">Edit</a>
 		<a class="btn btn-danger delete-link" href="<?php echo base_url('role/delete/'.$role->id); ?>" data-role-id="<?php echo $role->id; ?>">Delete</a>
 	  </td>

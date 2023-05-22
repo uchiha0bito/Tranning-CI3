@@ -1,5 +1,8 @@
 <?php
 
+if (!defined('BASEPATH')) {
+	exit('No direct script access allowed');
+}
 
 class PermissionController extends CI_Controller
 {
@@ -7,6 +10,7 @@ class PermissionController extends CI_Controller
 	{
 		parent::__construct();
 		$this->load->model('Permission_Model');
+		check_login();
 	}
 
 	public function index()
@@ -17,24 +21,29 @@ class PermissionController extends CI_Controller
 		$this->load->view('permissions/index', $data);
 		$this->load->view('admin_template/footer');
 		$this->load->view('permissions/js');
-
-
 	}
 
 	// Return view create permission
 	public function create()
 	{
+		if (check_access('add_permission')) {
+			$this->load->view('admin_template/header');
+			$this->load->view('admin_template/navbar');
+			$this->load->view('permissions/create');
+			$this->load->view('admin_template/footer');
+			$this->load->view('permissions/js');
 
-		$this->load->view('admin_template/header');
-		$this->load->view('admin_template/navbar');
-		$this->load->view('permissions/create');
-		$this->load->view('admin_template/footer');
+		} else {
+			redirect(base_url('/dashboard'));
+		}
 	}
 
 
 	public function store()
 	{
+
 		$this->form_validation->set_rules('name', 'Permission Name', 'required|min_length[3]');
+
 
 		if ($this->form_validation->run() == TRUE) {
 
@@ -46,7 +55,7 @@ class PermissionController extends CI_Controller
 				redirect(base_url('permission'));
 			}
 		} else {
-			$this->create();
+			redirect(base_url('permission/create'));
 		}
 
 		// Show view create role
@@ -56,11 +65,16 @@ class PermissionController extends CI_Controller
 	// Return view edit permission
 	public function edit($permissionId)
 	{
-		$data['permission'] = $this->Permission_Model->getPermission($permissionId);
-		$this->load->view('admin_template/header');
-		$this->load->view('admin_template/navbar');
-		$this->load->view('permissions/edit',$data);
-		$this->load->view('admin_template/footer');
+
+		if (check_access('edit_permission')) {
+			$data['permission'] = $this->Permission_Model->getPermission($permissionId);
+			$this->load->view('admin_template/header');
+			$this->load->view('admin_template/navbar');
+			$this->load->view('permissions/edit', $data);
+			$this->load->view('admin_template/footer');
+		} else {
+			redirect(base_url('/dashboard'));
+		}
 	}
 
 	public function update($permissionId)
@@ -81,15 +95,18 @@ class PermissionController extends CI_Controller
 			$data['role'] = $this->Permission_Model->getPermission($permissionId);
 
 			$this->load->view('permissions/edit', $data);
-		}else{
+		} else {
 			$this->edit($permissionId);
 		}
 	}
 
 	public function delete($permissionId)
 	{
-		$this->Permission_Model->deletePermission($permissionId);
-		redirect(base_url('permission'));
-
+		if (check_access('delete_permission')) {
+			$this->Permission_Model->deletePermission($permissionId);
+			redirect(base_url('permission'));
+		} else {
+			redirect(base_url('/dashboard'));
+		}
 	}
 }

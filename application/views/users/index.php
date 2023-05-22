@@ -29,6 +29,7 @@
 					<td><?php echo $user->created_at; ?></td>
 					<td><?php echo $user->updated_at; ?></td>
 					<td>
+						<a class="btn btn-warning" href="<?php echo base_url('user/edit_roles/' . $user->id); ?>">Manage Roles</a>
 						<a class="btn btn-success" href="<?php echo base_url('users/edit/' . $user->id); ?>">Edit</a>
 						<a class="btn btn-danger delete-link" href="<?php echo base_url('users/delete/' . $user->id); ?>" data-user-id="<?php echo $user->id; ?>">Delete</a>
 					</td>
