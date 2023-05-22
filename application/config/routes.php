@@ -85,7 +85,7 @@ $route['role/update/(:num)'] 	= 'RoleController/update/$1';
 $route['role/delete/(:num)'] 	= 'RoleController/delete/$1';
 
 
-// Route  Users
+// Route Users
 
 $route['users']  				= 'UserController/index';
 $route['users/list']['GET']  	= 'UserController/index';
@@ -97,6 +97,21 @@ $route['users/edit/(:num)'] 	= 'UserController/edit/$1';
 $route['users/update/(:num)'] 	= 'UserController/update/$1';
 
 $route['users/delete/(:num)'] 	= 'UserController/delete/$1';
+
+
+
+// Route Permissions
+
+$route['permission'] 				= 'PermissionController/index'; 
+$route['permission/list']['GET'] 	= 'PermissionController/index'; 
+
+$route['permission/create']['GET'] 	= 'PermissionController/create'; 
+$route['permission/store']['POST']	= 'PermissionController/store';
+
+$route['permission/edit/(:num)'] 	= 'PermissionController/edit/$1'; 
+$route['permission/update/(:num)']  = 'PermissionController/update/$1';
+
+$route['permission/delete/(:num)'] 	= 'PermissionController/delete/$1'; 
 
 
 

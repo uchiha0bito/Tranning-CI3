@@ -23,6 +23,7 @@ class RoleController extends CI_Controller
 		$this->load->view('roles/js');
     }
 
+		// Return view role create
 	public function create()
 	{
 		$this->load->view('admin_template/header');
@@ -52,34 +53,42 @@ class RoleController extends CI_Controller
         $this->create();
     }
 
-	public function edit()
+	public function edit($role_id)
 	{
+
+		$data['role'] = $this->Role_Model->get_role($role_id);
+
 		$this->load->view('admin_template/header');
 		$this->load->view('admin_template/navbar');
-		$this->load->view('roles/edit');
+		$this->load->view('roles/edit',$data);
 		$this->load->view('admin_template/footer');
 	}
 
     public function update($role_id)
     {
 
+		$this->form_validation->set_rules('name', 'Role Name', 'min_length[3]');
+		if ($this->form_validation->run() == TRUE) {
         if ($this->input->post()) {
             $data = array(
                 'name' => $this->input->post('name'),
             );
             $this->Role_Model->update_role($role_id, $data);
-            redirect('roles');
+            redirect(base_url('role'));
         }
 
         $data['role'] = $this->Role_Model->get_role($role_id);
 
         $this->load->view('roles/edit', $data);
+		}else{
+			$this->edit($role_id);
+		}
     }
 
     public function delete($role_id)
     {
         // Delete role
         $this->Role_Model->delete_role($role_id);
-        redirect('roles');
+        redirect(base_url('role'));
     }
 }
