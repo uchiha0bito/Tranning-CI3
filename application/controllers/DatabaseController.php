@@ -19,7 +19,7 @@ class DatabaseController extends CI_Controller
 	{
 
         $data['data_from_default_db'] = $this->Database_Model->get_data_from_default_db();
-        $data['data_from_second_db'] = $this->Database_Model->get_data_from_second_db();
+        $data['data_from_second_db']  = $this->Database_Model->get_data_from_second_db();
 
 		$this->load->view('admin_template/header');
         $this->load->view('demo_database/index', $data);

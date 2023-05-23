@@ -23,7 +23,6 @@ class UserController extends CI_Controller
 			$data['users'] = $users;
 
 			$this->load->view('admin_template/header');
-			$this->load->view('admin_template/navbar');
 			$this->load->view('users/index', $data);
 			$this->load->view('admin_template/footer');
 			$this->load->view('users/js');
@@ -38,7 +37,6 @@ class UserController extends CI_Controller
 		if (check_access('add_user')) {
 
 		$this->load->view('admin_template/header');
-		$this->load->view('admin_template/navbar');
 		$this->load->view('users/create');
 		$this->load->view('admin_template/footer');
 		}else{
@@ -83,7 +81,6 @@ class UserController extends CI_Controller
 		$user 			= $this->User_Model->get_user_by_id($user_id);
 		$data['user'] 	= $user;
 		$this->load->view('admin_template/header');
-		$this->load->view('admin_template/navbar');
 		$this->load->view('users/edit', $data);
 		$this->load->view('admin_template/footer');
 	}

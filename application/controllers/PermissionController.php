@@ -17,7 +17,6 @@ class PermissionController extends CI_Controller
 	{
 		$data['permissions'] = $this->Permission_Model->getPermissions();
 		$this->load->view('admin_template/header');
-		$this->load->view('admin_template/navbar');
 		$this->load->view('permissions/index', $data);
 		$this->load->view('admin_template/footer');
 		$this->load->view('permissions/js');
@@ -28,7 +27,6 @@ class PermissionController extends CI_Controller
 	{
 		if (check_access('add_permission')) {
 			$this->load->view('admin_template/header');
-			$this->load->view('admin_template/navbar');
 			$this->load->view('permissions/create');
 			$this->load->view('admin_template/footer');
 			$this->load->view('permissions/js');
@@ -69,9 +67,10 @@ class PermissionController extends CI_Controller
 		if (check_access('edit_permission')) {
 			$data['permission'] = $this->Permission_Model->getPermission($permissionId);
 			$this->load->view('admin_template/header');
-			$this->load->view('admin_template/navbar');
 			$this->load->view('permissions/edit', $data);
 			$this->load->view('admin_template/footer');
+			$this->load->view('permissions/js', $data);
+
 		} else {
 			redirect(base_url('/dashboard'));
 		}

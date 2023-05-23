@@ -125,8 +125,6 @@ $route['role/permissions/update'] 				= 'RolePermissionController/updatePermissi
 $route['user/edit_roles/(:num)'] 				= 'UserRoleController/editRoleForUser/$1';
 $route['user/roles/update'] 					= 'UserRoleController/updateRoleForUser';
 
-
-
 // Route Demo Database
 $route['demo/database'] 						= 'DatabaseController/index';
 

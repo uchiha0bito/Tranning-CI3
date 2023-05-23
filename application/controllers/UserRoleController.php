@@ -35,7 +35,6 @@ class UserRoleController extends CI_Controller {
         // View edit roles cho user
 
 		$this->load->view('admin_template/header');
-		$this->load->view('admin_template/navbar');
         $this->load->view('users/edit_roles', $data);
 		$this->load->view('admin_template/footer');
 

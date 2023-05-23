@@ -1,7 +1,7 @@
 <!-- Hiển thị dữ liệu từ cơ sở dữ liệu mặc định -->
 
-<div class="container">
-<h2>Data from Default DB</h2>
+<div class="container mt-5">
+<h2>Data Table Products from Default DB</h2>
 <table id="defaultTable">
     <thead>
         <tr>
@@ -28,7 +28,7 @@
     </tbody>
 </table>
 
-<h2>Data from Second DB</h2>
+<h2>Data from Table Products from Second DB</h2>
 <table id="secondTable">
     <thead>
         <tr>

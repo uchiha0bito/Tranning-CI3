@@ -34,7 +34,6 @@ class RolePermissionController extends CI_Controller {
 
         // View edit permissions for role
 		$this->load->view('admin_template/header');
-		$this->load->view('admin_template/navbar');
         $this->load->view('roles/edit_permissions', $data);
 		$this->load->view('admin_template/footer');
 

@@ -19,7 +19,6 @@ class RoleController extends CI_Controller
 			$data['roles'] = $this->Role_Model->get_roles();
 
 			$this->load->view('admin_template/header');
-			$this->load->view('admin_template/navbar');
 			$this->load->view('roles/index', $data);
 			$this->load->view('admin_template/footer');
 			$this->load->view('roles/js');
@@ -34,7 +33,6 @@ class RoleController extends CI_Controller
 		if (check_access('create_role')) {
 
 			$this->load->view('admin_template/header');
-			$this->load->view('admin_template/navbar');
 			$this->load->view('roles/create');
 			$this->load->view('admin_template/footer');
 		} else {
@@ -72,7 +70,6 @@ class RoleController extends CI_Controller
 			$data['role'] = $this->Role_Model->get_role($role_id);
 
 			$this->load->view('admin_template/header');
-			$this->load->view('admin_template/navbar');
 			$this->load->view('roles/edit', $data);
 			$this->load->view('admin_template/footer');
 		} else {
