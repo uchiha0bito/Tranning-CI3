@@ -3,7 +3,11 @@ class Permission_Model extends CI_Model
 {
 	public function getPermissions()
 	{
-		return $this->db->get('permissions')->result();
+		$this->db->select('permissions.*');
+        $this->db->from('permissions');
+
+		$query = $this->db->get();
+        return $query->result();
 	}
 
 	public function getPermission($permissionId)

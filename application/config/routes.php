@@ -127,6 +127,12 @@ $route['user/roles/update'] 					= 'UserRoleController/updateRoleForUser';
 
 
 
+// Route Demo Database
+$route['demo/database'] 						= 'DatabaseController/index';
+
+
+
+
 
 
 
