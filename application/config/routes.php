@@ -129,6 +129,42 @@ $route['user/roles/update'] 					= 'UserRoleController/updateRoleForUser';
 $route['demo/database'] 						= 'DatabaseController/index';
 
 
+// Route Demo Order
+
+
+$route['order'] 					= 'OrderController/index'; 
+$route['order/list']['GET'] 		= 'OrderController/index'; 
+
+$route['order/create'] 				= 'OrderController/create';
+$route['order/store'] 				= 'OrderController/store';
+$route['order/detail/(:num)'] 		= 'OrderController/detail/$1';
+
+$route['order/edit/(:num)'] 		= 'OrderController/edit/$1';
+$route['order/update/(:num)'] 		= 'OrderController/update/$1';
+$route['order/delete/(:num)'] 		= 'OrderController/delete/$1';
+
+
+// Route Product
+
+
+$route['products'] 					= 'ProductController/index';
+$route['products/list'] 			= 'ProductController/index';
+
+$route['products/create']['GET'] 	= 'ProductController/create';
+$route['products/store']['POST']	= 'ProductController/store';
+
+$route['products/edit/(:num)'] 		= 'ProductController/edit/$1';
+$route['products/update/(:num)'] 	= 'ProductController/update/$1';
+
+$route['products/delete/(:num)'] 	= 'ProductController/delete/$1';
+
+$route['products/import'] 		    = 'ProductController/importExcelProduct';
+$route['products/export'] 		    = 'ProductController/exportExcelProduct';
+
+
+
+
+
 
 
 

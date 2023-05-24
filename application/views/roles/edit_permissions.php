@@ -18,8 +18,6 @@
 				<?php endforeach; ?>
 			</div>
 		</ul>
-
-
 		<button type="submit " class="btn btn-success">Save Permissions</button>
 	</form>
 </div>

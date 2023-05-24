@@ -19,7 +19,6 @@ class PermissionController extends CI_Controller
 		$this->load->view('admin_template/header');
 		$this->load->view('permissions/index', $data);
 		$this->load->view('admin_template/footer');
-		$this->load->view('permissions/js');
 	}
 
 	// Return view create permission
