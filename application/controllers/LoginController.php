@@ -43,7 +43,7 @@ class LoginController extends CI_Controller
 
 				$user_role = $this->User_Model->get_role_name_by_user_id($user->id);
 
-				$this->session->set_userdata('user_logged', $user_data);
+				$this->session->set_userdata('learn_user_logged', $user_data);
 
 				$this->session->set_userdata('user_role', $user_role);
 
@@ -65,7 +65,7 @@ class LoginController extends CI_Controller
 
 	public function logout()
 	{
-		$this->session->unset_userdata('user_logged');
+		$this->session->unset_userdata('learn_user_logged');
 
 		$this->session->unset_userdata('user_role');
 

@@ -4,7 +4,7 @@ if (!defined('BASEPATH')) {
     exit('No direct script access allowed');
 }
 
-class UserRoleController extends CI_Controller {
+class UserRoleController extends MY_Controller {
 
 
 	public function __construct()
@@ -52,5 +52,7 @@ class UserRoleController extends CI_Controller {
 
 		redirect(base_url('/users'));
     }
+
+	
 }
 ?>

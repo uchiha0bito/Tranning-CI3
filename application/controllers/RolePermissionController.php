@@ -4,7 +4,7 @@
 if (!defined('BASEPATH')) {
     exit('No direct script access allowed');
 }
-class RolePermissionController extends CI_Controller {
+class RolePermissionController extends MY_Controller {
 
 
 	public function __construct()

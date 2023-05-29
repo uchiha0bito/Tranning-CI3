@@ -5,13 +5,12 @@ if (!defined('BASEPATH')) {
 }
 
 
-class HomeController extends CI_Controller
+class HomeController extends MY_Controller
 {
 
     public function __construct()
     {
         parent::__construct();
-		check_login();
     }
 
 	public function index()

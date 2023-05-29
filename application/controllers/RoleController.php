@@ -3,13 +3,12 @@ if (!defined('BASEPATH')) {
 	exit('No direct script access allowed');
 }
 
-class RoleController extends CI_Controller
+class RoleController extends MY_Controller
 {
 	public function __construct()
 	{
 		parent::__construct();
 		$this->load->model('Role_Model');
-		check_login();
 	}
 
 	public function index()

@@ -1,5 +1,5 @@
 <?php
-class OrderController extends CI_Controller
+class OrderController extends MY_Controller
 {
 
 
@@ -10,7 +10,6 @@ class OrderController extends CI_Controller
 		$this->load->model('Order_Model');
 		$this->load->model('Customer_Model');
         $this->load->model('Order_Details_Model');
-		check_login();
 	}
 
 	public function index()

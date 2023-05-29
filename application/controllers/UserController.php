@@ -5,13 +5,14 @@ if (!defined('BASEPATH')) {
 
 use Carbon\Carbon;
 
-class UserController extends CI_Controller
+class UserController extends MY_Controller
 {
 
 	public function __construct()
 	{
 		parent::__construct();
 		$this->load->model('User_Model');
+
 	}
 
 	// View list user

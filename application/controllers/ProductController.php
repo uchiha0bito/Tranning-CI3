@@ -4,7 +4,7 @@ use PhpOffice\PhpSpreadsheet\IOFactory;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 
-class ProductController extends CI_Controller
+class ProductController extends MY_Controller
 {
 	public function __construct()
 	{
@@ -156,7 +156,7 @@ class ProductController extends CI_Controller
 			$tempFile = $_FILES['excel_file']['tmp_name'];
 	
 			try {
-				// Load tệp Excel
+				// Load file Excel
 				$spreadsheet = IOFactory::load($tempFile);
 				$worksheet = $spreadsheet->getActiveSheet();
 
@@ -181,12 +181,12 @@ class ProductController extends CI_Controller
 				if (!empty($data)) {
 	
 					foreach ($data as $row) {
-						$productId = $row[0];
-						$name = $row[1];
-						$image = $row[2];
-						$description = $row[3];
-						$price = $row[4];
-						$otherDetails = $row[5];
+						$productId 		= $row[0];
+						$name 			= $row[1];
+						$image 			= $row[2];
+						$description 	= $row[3];
+						$price 			= $row[4];
+						$otherDetails 	= $row[5];
 	
 						$this->db->insert('products', [
 							'product_id' 	=> $productId,
